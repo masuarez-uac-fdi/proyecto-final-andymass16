@@ -1,0 +1,39 @@
+<?php
+session_start();
+if(isset($_SESSION['usuario'])){
+	if($_SESSION['usuario']['Tipo_usuario']=="Admin"){
+		header('Location: Admin/')
+	}else if($_SESSION['usuario']['Tipo_usuario']=="Usuario"){
+		header('Location: User/')
+	}
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title> CityView</title>
+	<link rel="stylesheet" type ="text/css" href="loginEstilos.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="main.js"></script>
+</head>
+<body>
+	<div class="error">	
+		<span>Datos de acceso no validos</span>
+	</div>
+	<header class="content">
+		<div class="logo">
+			<img src="logo.png">
+		</div>
+		<div class="container">
+			<form action="" id="forming">
+				<input type="text" name="usuariolg" placeholder="Usuario" pattern="[A-Za-z0-9_-]{1,15}" class="entryUsuario" required/>
+				<input type="password" name="passlg" placeholder="Contrasena" pattern="[A-Za-z0-9_-]{1,15}" class="entryPass" required/>
+				<input type="submit" class="botonlg" value="Iniciar Sesion">
+			</form>
+			<a style="color: white; text-decoration: none;"href="#">Registrate</a>
+		</div>
+	</header>
+	<script src="main.js"></script>
+</body>
+</html>
